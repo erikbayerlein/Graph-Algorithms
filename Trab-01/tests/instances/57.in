@@ -1,0 +1,8 @@
+dl
+format=edgelist1
+n=20
+data:
+2 3
+5 9
+10 20
+13 18

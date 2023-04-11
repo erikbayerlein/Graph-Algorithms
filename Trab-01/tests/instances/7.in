@@ -1,0 +1,9 @@
+dl
+format=edgelist1
+n=10
+data:
+1 7
+3 9
+4 9
+4 5
+9 10
