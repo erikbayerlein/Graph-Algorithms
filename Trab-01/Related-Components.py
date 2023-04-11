@@ -62,11 +62,12 @@ def related_components(V):
             # when all the related components have been detected, we need to clear the list for the next components
             Related.clear()
 
+            
 # reading the input in the run codes platform
 data = sys.stdin.readlines()
 
 # if there's necessity to test the code,
-# go to the tests folder and copy a input into the test.txt file
+# go to the tests folder and copy an input into the test.txt file
 # need to comment line 66
 '''with open('test.txt') as f:
     data = f.readlines()'''
