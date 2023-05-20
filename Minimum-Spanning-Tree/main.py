@@ -7,7 +7,7 @@ import node_relatedComponents as nrc
 # which the num of lines are the num of the vertex,
 # the number inside the matrix will represent the weight of the edge
 # -1 means that there isn't an edge connecting the vertices
-V = [[-1, 3, 2, 1],[3, -1, 4, 4],[2, 4, -1, 2],[1, 4, 2, -1]] 
+V = [[-1, 2, -1, 1, -1],[2, -1, 1, -1, -1],[-1, 1, -1, 4, 2],[1, -1, 4, -1, 3],[-1, -1, 2, 3, -1]] 
 
 
 L = [] # list sorted by the weight of the edges
