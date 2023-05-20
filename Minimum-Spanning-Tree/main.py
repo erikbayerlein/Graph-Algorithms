@@ -65,7 +65,7 @@ while len(A) != len(V)-1: # A will be a minimum spanning tree when its length = 
     edge = L.pop(0) # analyze the first edge
 
     if repr[edge[0]] != repr[edge[1]]: # if the representatives are equal to each other, the vertices are in the same connected component
-        A.append(edge) # add the vertex to A
+        A.append(edge) # add the edge to A
         rep_u = repr[edge[0]] # rep_u will be the representative of an end of the edge
         rep_v = repr[edge[1]] # rep_v will be the representative of the other end of the edge
 
