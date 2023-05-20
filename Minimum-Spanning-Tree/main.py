@@ -79,7 +79,7 @@ while len(A) != len(V)-1: # A will be a minimum spanning tree when its length = 
         comp[rep_u].last = comp[rep_v].last # the last node of the linked list of u will point to the last node of the linked list of the rep of v
         comp[rep_u].length = comp[rep_u].length + comp[rep_v].length # sum of the lengths of the linked lists
 
-        while first != None: # changing all the reps of the linked list of v
+        while first != None: # changing all the reps of the linked list of v to the reps of u
             repr[first.elem] = rep_u 
             first = first.next
 
