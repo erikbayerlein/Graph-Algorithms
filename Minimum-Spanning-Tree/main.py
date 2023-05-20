@@ -61,26 +61,26 @@ for i in range(len(V)):
 A = [] # the array which will contain the edges to make an minimum spanning tree
 
 
-while len(A) != len(V)-1: # the condit
-    edge = L.pop(0)
+while len(A) != len(V)-1: # A will be a minimum spanning tree when its length = lenght of V - 1
+    edge = L.pop(0) # analyze the first edge
 
-    if repr[edge[0]] != repr[edge[1]]:
-        A.append(edge)
-        rep_u = repr[edge[0]]
-        rep_v = repr[edge[1]]
+    if repr[edge[0]] != repr[edge[1]]: # if the representatives are equal to each other, the vertices are in the same connected component
+        A.append(edge) # add the vertex to A
+        rep_u = repr[edge[0]] # rep_u will be the representative of an end of the edge
+        rep_v = repr[edge[1]] # rep_v will be the representative of the other end of the edge
 
-        if comp[rep_u].length < comp[rep_v].length:
+        if comp[rep_u].length < comp[rep_v].length: # update the rep to the smallest connected component
             copy_u = rep_u
             rep_u = rep_v
             rep_v = copy_u
 
-        first = comp[rep_v].first
-        comp[rep_u].last.next = first
-        comp[rep_u].last = comp[rep_v].last
-        comp[rep_u].length = comp[rep_u].length + comp[rep_v].length
+        first = comp[rep_v].first # first = the first node of the linked list of the rep of v
+        comp[rep_u].last.next = first # the next of the last node of the linked list of the rep of u will point to first
+        comp[rep_u].last = comp[rep_v].last # the last node of the linked list of u will point to the last node of the linked list of the rep of v
+        comp[rep_u].length = comp[rep_u].length + comp[rep_v].length # sum of the lengths of the linked lists
 
-        while first != None:
-            repr[first.elem] = rep_u
+        while first != None: # changing all the reps of the linked list of v
+            repr[first.elem] = rep_u 
             first = first.next
 
 print(A)
