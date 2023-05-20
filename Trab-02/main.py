@@ -33,15 +33,7 @@ def graph(data):
     return V
 
 def orderWeightedGraph(V):
-    V.sort(key=lambda x: x[2])
-
-    '''for i in range(len(V)-1, 0, -1):
-        for j in range(i):
-            if V[j][2] > V[j+1][2]:
-                copy = V[j]
-                V[j] = V[j+1]
-                V[j+1] = copy'''
-    return V
+    return V.sort(key=lambda x: x[2])
 
 def representativesList(n):
     repr = [-1] * (n) # array that will contain the representative of each related components
