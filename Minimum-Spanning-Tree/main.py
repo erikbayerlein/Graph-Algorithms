@@ -26,14 +26,7 @@ for i in range(len(G_aux)):
             L.append(aux)
             aux = []
 
-# bubble sort adapted to order the list by weight
-for i in range(len(L)-1, 0, -1):
-    for j in range(i):
-        if L[j][2] > L[j+1][2]:
-            copy = L[j]
-            L[j] = L[j+1]
-            L[j+1] = copy
-
+L.sort(key=lambda x: x[2])
 
 repr = [-1] * len(V) # array that will contain the representative of each related components
 
