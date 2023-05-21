@@ -91,9 +91,9 @@ def totalWeightAGM(n, L, repr, comp):
 data = sys.stdin.readlines()
 
 # if there's necessity to test the code,
-# go to the tests folder and copy an input into the test.txt file
+# go to the tests folder and copy an input into the tests.txt file
 # need to comment line 96
-'''with open('/Users/erikbayerlein/Documents/GitHub/Graph-Algorithms/Trab-02/tests.txt') as f:
+'''with open('pathToTests.txt') as f:
     data = f.readlines()'''
 
 n = numOfVertices(data)
