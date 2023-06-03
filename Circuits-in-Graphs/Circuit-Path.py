@@ -39,6 +39,8 @@ def hasCircuit():
     for o in range(len(V)):
         if state[o] == "not visited":
             if foundCircuit(state, o):
+                if o in Circ:
+                    Circ.insert(len(Circ) + 1, o)
                 return True
     return False
 
@@ -47,9 +49,11 @@ def foundCircuit(state, u):
     state[u] = "visiting"
     for v in V_out[u]:
         if state[v] == "visiting":
+            Circ.append(v)
             return True
         if state[v] == "not visited":
             if foundCircuit(state, v):
+                Circ.append(v)
                 return True
     state[u] = "visited"
     return False
@@ -60,14 +64,22 @@ V_in, V_out, V = MakeGraph(n) # two types of neighbours # this line will be edit
 
 
 # Fill the graph here
-V = [[1, 2, 3], [0, 2], [0, 1, 3], [0, 2]] # all the vertices and its edges
-V_in = [[3], [0], [0, 1], [2]] # arrival neighborhood
-V_out = [[1, 2], [2], [3], [0]] # exit neighborhood
+#V = [[1, 2, 3], [0, 2], [0, 1, 3], [0, 2]] # all the vertices and its edges
+#V_in = [[3], [0], [0, 1], [2]] # arrival neighborhood
+#V_out = [[1, 2], [2], [3], [0]] # exit neighborhood
 
+V = [[1,3], [0, 2, 3, 5], [1, 4, 5], [0, 1, 4], [2, 3], [1, 2]] # all the vertices and its edges
+V_in = [[], [0, 5], [1], [0, 1, 4], [2], [2]] # arrival neighborhood
+V_out = [[1, 3], [2, 3], [4, 5], [], [3], [1]] # exit neighborhood
+
+
+Circ = []
 
 state = ["not visited"]*n # three states: not visited, visiting and visited
 
 if hasCircuit():
+    Circ.reverse()
+    print(*Circ)
     print("The graph has circuit")
 else:
     print("The graph doesnt have circuit")
