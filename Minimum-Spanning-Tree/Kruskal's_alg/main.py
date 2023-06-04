@@ -14,6 +14,7 @@ L = [] # list sorted by the weight of the edges
 G_aux = V
 aux = []
 
+
 # L won't have double edges, like [0,1] and [1, 0]
 for i in range(len(G_aux)):
     for j in range(len(G_aux[i])):
