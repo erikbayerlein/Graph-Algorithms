@@ -24,24 +24,24 @@ def FoundCycle(A, o, state, ancestor):
                 edge = [o, v, A[o][v]]
                 cycle.append(edge)
                 return True
+        if state[v] == "visited":
+            break
             
     state = "visited"
     return False
 
 
-# representation of the graph in a adjacency matrix,
+# representation of the graph in an adjacency matrix,
 # which the num of lines are the num of the vertex,
 # the number inside the matrix will represent the weight of the edge
 # -1 means that there isn't an edge connecting the vertices
-V = [[-1, 5, 1, -1],[5, -1, 2, -1],[1, 2, -1, 3],[-1, -1, 3, -1]] 
+V = [[-1, 5, 1, 4,-1],[5, -1, 2, -1,-1],[1, 2, -1, 3,-1],[4, -1, 3, -1,-1],[-1,-1,-1,-1,-1]] 
 #V = [[-1, 2, -1, 1, -1],[2, -1, 1, -1, -1],[-1, 1, -1, 4, 2],[1, -1, 4, -1, 3],[-1, -1, 2, 3, -1]] 
 
 A = V
 cycle = []
 
-state = []
-for n in range(len(A)):
-    state.append("not_visited")
+state = ["not_visited"] * len(A)
 
 while HasCycle(A):
     heavy_edge = cycle[0]
@@ -51,4 +51,5 @@ while HasCycle(A):
     A[heavy_edge[0]][heavy_edge[1]] = -1
     A[heavy_edge[1]][heavy_edge[0]] = -1
 
+print(state)
 print(A)
