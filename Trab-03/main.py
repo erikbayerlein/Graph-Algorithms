@@ -50,10 +50,12 @@ def FordFulkerson(V, origin, destiny):
         s = destiny
         path_flow = float("Inf")
 
+        # achando a capacidade residual do caminho aumentante à partir do destino
         while s != origin:
             path_flow = min(path_flow, V_aux[ancestral[s]][s])
             s = ancestral[s]
 
+        # o fluxo máximo será a capacidade residual do caminho mais o que já passa no fluxo
         max_flow += path_flow
         v = destiny
 
